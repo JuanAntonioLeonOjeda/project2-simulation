@@ -15,7 +15,7 @@ METHOD | ENDPOINT         | TOKEN | ROLE | DESCRIPTION              | POST PARAM
 -------|------------------|-------|------|--------------------|-------------------------------------------------|--------------------
 GET    | /user/profile    | YES   | user | Get Own Profile    |                                                 | {user}
 GET    | /user            | YES   | admin | Get All Users     | query params                                    | [users]
-GET    | /user/search     | YES   | user | Search One User    | query params (name)                             | {id, userName, tweets, friends}
+POST   | /user/search     | YES   | user | Search One User    | body (userName)                                 | {id, userName, tweets, friends}
 GET    | /user/:id       | YES   | admin | Get One User       |                                                 | {user}
 PUT    | /user/profile    | YES   | user | Update Own Profile |  `userName`, `email`                            | 'Profile updated'
 PUT    | /user/:id       | YES   | admin | Update One User     |   `userName`, `email`, `password`              | 'Profile updated'
