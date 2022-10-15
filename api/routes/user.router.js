@@ -2,7 +2,8 @@ const router = require('express').Router()
 
 const {
   getAllUsers,
-  getOneUser
+  getOneUser,
+  searchUser
 } = require('../controllers/user.controller')
 
 const {
@@ -12,5 +13,6 @@ const {
 
 router.get('/', checkAuth, checkAdmin, getAllUsers)
 router.get('/:id', checkAuth, checkAdmin, getOneUser)
+router.post('/search', checkAuth, searchUser)
 
 module.exports = router

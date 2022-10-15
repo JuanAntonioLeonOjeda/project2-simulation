@@ -23,6 +23,7 @@ function startExpress() {
     .use(cors())
     .use(morgan('dev'))
     .use(express.json())
+    .use(express.text())
     .use('/api', require('./api/routes'))
 
     .listen(process.env.PORT, () => {
