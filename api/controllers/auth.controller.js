@@ -13,7 +13,7 @@ async function signup (req, res) {
       }
     )
 
-    const payload = { email: user.email, userName: user.userName }
+    const payload = { email: user.email , userName: user.userName }
     const token = jwt.sign(payload, process.env.SECRET, { expiresIn: '1h' })
 
     return res.status(200).json({ msg: 'User created', token: token })
