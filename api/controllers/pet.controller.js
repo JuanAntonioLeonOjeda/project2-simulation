@@ -37,7 +37,7 @@ async function addFavourite (req, res) {
   }
 }
 
-async function createDate (req, res) {     //IN PROGRESS
+async function createDate (req, res) {
   try {
     const pet = await Pet.findByPk(req.params.petId)
     const pet2 = await Pet.findByPk(req.params.petId2)
