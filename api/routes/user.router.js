@@ -7,7 +7,8 @@ const {
   getProfile,
   updateUser,
   updateOwnProfile,
-  deleteUser
+  deleteUser,
+  addPet
 } = require('../controllers/user.controller')
 
 const {
@@ -17,10 +18,11 @@ const {
 
 router.get('/', checkAuth, checkAdmin, getAllUsers)
 router.get('/profile', checkAuth, getProfile)
-router.get('/:id', checkAuth, checkAdmin, getOneUser)
+router.get('/:id', checkAuth, getOneUser)
 router.post('/search', checkAuth, searchUser)
 router.patch('/profile', checkAuth, updateOwnProfile)
 router.patch('/:id', checkAuth, checkAdmin, updateUser)
+router.put('/pets/:id', checkAuth, addPet)
 router.delete('/:id', checkAuth, checkAdmin, deleteUser)
 
 module.exports = router

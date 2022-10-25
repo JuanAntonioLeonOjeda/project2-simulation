@@ -1,19 +1,17 @@
 const User = require('../api/models/user.model')
-const Tweet = require('../api/models/tweet.model')
+const Pet = require('../api/models/pet.model')
+const Date = require('../api/models/date.model')
 
 function addRelations() {
   try {
     
-    User.hasMany(Tweet)
-    Tweet.belongsTo(User)
+    User.hasMany(Pet)
+    Pet.belongsTo(User)
 
-    User.belongsToMany(User, { as: 'Friend', through: 'Friends' })
+    Pet.belongsToMany(Pet, { as: 'Friend', through: 'Friends' })
 
-    User.belongsToMany(Tweet, { through: 'Favourites' })
-    Tweet.belongsToMany(User, { through: 'Favourites' })
-
-    User.belongsToMany(Tweet, { through: 'Retweets' })
-    Tweet.belongsToMany(User, { through: 'Retweets' })
+    Pet.belongsToMany(Date, { through: 'Pet_Date' })
+    Date.belongsToMany(Pet, { through: 'Pet_Date' })
 
     console.log('Relations added')
   } catch (error) {
